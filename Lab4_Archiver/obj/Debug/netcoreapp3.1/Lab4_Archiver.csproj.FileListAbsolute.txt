@@ -1,0 +1,11 @@
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.exe
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.deps.json
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.runtimeconfig.json
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.runtimeconfig.dev.json
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.dll
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1\Lab4_Archiver.pdb
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\obj\Debug\netcoreapp3.1\Lab4_Archiver.csprojAssemblyReference.cache
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\obj\Debug\netcoreapp3.1\Lab4_Archiver.AssemblyInfoInputs.cache
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\obj\Debug\netcoreapp3.1\Lab4_Archiver.AssemblyInfo.cs
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\obj\Debug\netcoreapp3.1\Lab4_Archiver.dll
+C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\obj\Debug\netcoreapp3.1\Lab4_Archiver.pdb

@@ -6,7 +6,19 @@ namespace Lab4_Archiver
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if (args.Length == 0)
+            {
+                string[] arg = Console.ReadLine()?.Split(" ");
+
+                //var archive = new Archiver(arg);
+
+                Console.WriteLine(((char)17).ToString());
+            }
+            else
+            {   //C:\Users\mihai\Source\repos\Lab4_Archiver\Lab4_Archiver\bin\Debug\netcoreapp3.1
+                var archive = new Archiver(args);
+            }
+            Console.ReadKey();
         }
     }
 }
