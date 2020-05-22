@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,9 +8,9 @@ namespace Lab4_Archiver
 {
     class Archive
     {
-        private string InputName { get; set; }
+        public string InputName { get; }
         private string[] ReadData { get; set; }
-        private string[] CompressedData { get; set; }
+        public List<int> CompressedData { get; private set; }
 
         public Archive(string inputName, string[] readData)
         {
@@ -19,27 +20,35 @@ namespace Lab4_Archiver
 
         public void Compress()
         {
-            Dictionary<int, string> dictionary = new Dictionary<int, string>();
-            int num = 0;
-            foreach (var str in ReadData)
-                foreach (var chr in str.Where(chr => !dictionary.ContainsValue(chr.ToString())))
-                    dictionary.Add(num++, chr.ToString());
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            for (int i = 0; i < 256; i++)
+                dictionary.Add(((char)i).ToString(), i);
 
-            string temp = "";
+            string term = "";
+            List<int> compressed = new List<int>();
+
             foreach (var str in ReadData)
             {
-                temp = temp.Insert(0, str[0].ToString());
-                for (int i = 1; i < str.Length; i++)
+                foreach (var chr in str)
                 {
-                    if (dictionary.ContainsValue(temp))
-                        temp = temp.Insert(i, str[i].ToString());
+                    string termPlusChr = term + chr;
+                    if (dictionary.ContainsKey(termPlusChr))
+                        term = termPlusChr;
                     else
                     {
-                        dictionary.Add(num++, temp);
-                        temp = str[i].ToString();
+                        compressed.Add(dictionary[term]);
+                        dictionary.Add(termPlusChr, dictionary.Count);
+                        term = chr.ToString();
                     }
                 }
+
+                if (!string.IsNullOrEmpty(term))
+                    compressed.Add(dictionary[term]);
             }
+
+            this.CompressedData = compressed;
+
+            File.CreateText(InputName).WriteLine(CompressedData);
         }
     }
 }

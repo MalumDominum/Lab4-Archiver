@@ -1,11 +1,37 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "UDE.CSharp/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/Ude.dll": {}
+        },
+        "runtime": {
+          "lib/Ude.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "UDE.CSharp/1.1.0": {
+      "sha512": "mCdLwQGz/9C6FptnFCoBTJI/C0K74fZOwfQWq2sl/p3H2H4RNS40Rnf2WF6G6+ZK1lCaOhtOdLlpXQTtbP13fQ==",
+      "type": "package",
+      "path": "ude.csharp/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/_._",
+        "lib/Ude.dll",
+        "ude.csharp.1.1.0.nupkg.sha512",
+        "ude.csharp.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "UDE.CSharp >= 1.1.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\mihai\\.nuget\\packages\\": {},
@@ -47,6 +73,12 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "UDE.CSharp": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -65,5 +97,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'UDE.CSharp 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "UDE.CSharp",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

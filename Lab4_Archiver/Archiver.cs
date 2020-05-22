@@ -13,11 +13,6 @@ namespace Lab4_Archiver
 
         public Archiver(string[] inputArgs)
         {
-            Read(inputArgs);
-        }
-
-        private void Read(string[] inputArgs)
-        {
             Action = inputArgs[0];
             OutputName = inputArgs[1];
             if (Action == "--compress" || Action == "-c")
@@ -31,6 +26,48 @@ namespace Lab4_Archiver
                 }
 
                 Archives = archives;
+                foreach (var archive in Archives)
+                {
+                    Console.Write($"Compressing file {archive.InputName}...");
+                    archive.Compress();
+                    Console.WriteLine(" Done.");
+                }
+                Console.WriteLine($"Result written to {OutputName}");
+            }
+            else if (Action == "--decompress" || Action == "-d")
+            {
+
+            }
+            else
+                throw new Exception("You entered the action incorrectly");
+        }
+
+        public void Decompress()
+        {
+            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            for (int i = 0; i < 256; i++)
+                dictionary.Add(i, ((char)i).ToString());
+
+            foreach (var archive in Archives)
+            {
+                string term = dictionary[archive.CompressedData[0]];
+                archive.CompressedData.RemoveAt(0);
+                StringBuilder decompressed = new StringBuilder(term);
+
+                string entry = "";
+                foreach (int key in archive.CompressedData)
+                {
+                    if (dictionary.ContainsKey(key))
+                        entry = dictionary[key];
+                    else if (key == dictionary.Count)
+                        entry = term + term[0];
+
+                    decompressed.Append(entry);
+
+                    dictionary.Add(dictionary.Count, term + entry[0]);
+
+                    term = entry;
+                }
             }
         }
     }
