@@ -21,7 +21,7 @@ namespace Lab4_Archiver
         public void Compress()
         {
             Dictionary<string, int> dictionary = new Dictionary<string, int>();
-            for (int i = 0; i < 256; i++)
+            for (int i = 0; i < 65536; i++)
                 dictionary.Add(((char)i).ToString(), i);
 
             string term = "";
@@ -36,19 +36,16 @@ namespace Lab4_Archiver
                         term = termPlusChr;
                     else
                     {
-                        compressed.Add(dictionary[term]);
                         dictionary.Add(termPlusChr, dictionary.Count);
+                        compressed.Add(dictionary[term]);
                         term = chr.ToString();
                     }
                 }
-
                 if (!string.IsNullOrEmpty(term))
                     compressed.Add(dictionary[term]);
             }
 
             this.CompressedData = compressed;
-
-            File.CreateText(InputName).WriteLine(CompressedData);
         }
     }
 }
