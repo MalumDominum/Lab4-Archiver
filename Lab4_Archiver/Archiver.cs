@@ -24,7 +24,7 @@ namespace Lab4_Archiver
                 {
                     var inputName = inputArgs[i];
                     List<string> readData = new List<string>(){"\"" + inputName + "\"\n"};
-                    readData.AddRange(File.ReadAllLines(inputName));
+                    readData.AddRange(File.ReadAllLines(inputName, Encoding.UTF32));
                     archives[i - 2] = new Archive(inputName, readData.ToArray());
                 }
 
@@ -61,7 +61,7 @@ namespace Lab4_Archiver
             for (int i = 0; i < 65536; i++)
                 dictionary.Add(i, ((char)i).ToString());
 
-            var source = File.ReadAllLines(OutputName);
+            var source = File.ReadAllLines(OutputName, Encoding.UTF32);
             List<int> compressedData = source
                                        .Select(number => Convert.ToInt32(number))
                                        .ToList();
